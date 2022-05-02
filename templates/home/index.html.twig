@@ -29,6 +29,9 @@
     </header>
     
     <main>
+    {% if message is defined %}
+    <h2 class="success">{{message}}</h2>
+    {% endif %}
         <section id="sectionAbout">
             <article class="sectionContent">
                 <h2 class="titleColored">À propos</h2>
@@ -80,6 +83,7 @@
                                 <li>HTML</li>
                                 <li>CSS</li>
                                 <li>SASS</li>
+                                <li>SYMFONY</li>
                             </ul>
                         </div>
                     </div>
@@ -101,6 +105,7 @@
                                 <li>HTML</li>
                                 <li>CSS</li>
                                 <li>SASS</li>
+                                <li>SQL</li>
                             </ul>
                         </div>
                     </div>
@@ -131,7 +136,7 @@
                         <img src="{{asset("images/projects/tinker.png")}}" alt="">
                     </div>
                     
-                    <h4>Portfolio 1</h4>
+                    <h4>Tinker</h4>
                     <p class="buttonModal">En savoir plus <i class="fa-solid fa-arrow-right"></i></p>
                     <div class="informationsForModal">
                         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aperiam eius dolores exercitationem molestias! Dolorem, cupiditate sit. Incidunt, error laboriosam id fuga voluptas obcaecati excepturi quam sint autem dignissimos voluptate.</p>
@@ -164,13 +169,20 @@
                 </div>
                 <div class="imgWithFormContainer">
                     <img src="{{asset("images/mail.png")}}" alt="">
-                    <form action="app/mail.php" method="POST">
+                    {# <form action="{{path('app_mailer')}}" method="POST">
                         <input type="text" name="firstName" id="firstName" placeholder="Nom" required maxlength="30">
                         <input type="text" name="lastName" id="lastName" placeholder="Prenom" required maxlength="30">
                         <input type="email" name="email" id="email" placeholder="Email" required maxlength="60">
                         <textarea name="content" id="content" cols="10" rows="10" placeholder="Vos questions..." required maxlength="1000"></textarea>
                         <button type="submit" class="button">Envoyer</button>
-                    </form>
+                    </form> #}
+                {{ form_start(form)}}
+                    {{ form_widget(form.firstName, {'attr': {'placeholder': 'Nom'}})}}
+                    {{ form_widget(form.lastName, {'attr': {'placeholder': 'Prenom'}})}}
+                    {{ form_widget(form.sender, {'attr': {'placeholder': 'Email'}})}}
+                    {{ form_widget(form.content, {'attr': {'placeholder': 'Vos questions...'}})}}
+                    <button type="submit" class="button">Envoyer</button>
+                {{ form_end(form) }}
                 </div>
             </article>
         </section>
@@ -194,8 +206,8 @@
                     <a href="#" class="demo button" target="_blank">Demo <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
                     <a href="" class="github" target="_blank"><i class="fa-brands fa-github"></i></a>
                     <div class="technoContainer">
-                        <!-- <ul>
-                        </ul> -->
+                         <ul id="ulModal">
+                        </ul> 
                     </div>
                 </div>
             </div>

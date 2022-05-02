@@ -21,6 +21,7 @@
 }
 ::-webkit-scrollbar-thumb {
     background-color: $primaryColor;
+    border-radius: 10px;
 }
 
 html, body {
@@ -37,6 +38,14 @@ h1, h2, h3, h4{
     font-family: robotoBold;
     font-size: 22px;
     display: inline-block;
+}
+
+.success{
+    text-align: center;
+    padding: .5em;
+    color: green;
+    margin: 0 auto;
+    display: block;
 }
 
 .button{
@@ -95,65 +104,4 @@ section{
 a{
     color: black;
     display: inline-block;
-}
-
-strong{
-    font-weight: normal;
-}
-
-// style hover gradiant pour l'img linkedin sur contact/footer
-.linkedin{
-    a{
-    background: linear-gradient(to right, $primaryColor, $thirdColor 50%, $fourthColor 50%, #76A9EA 50%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 200% 100%;
-    background-position: 100%;
-    @include transi(.4s);
-
-        &:hover{
-            background-position: 0 100%;
-        }
-    }
-}
-// style hover gradiant pour l'img github sur contact/footer
-.github{
-    a{
-        background: linear-gradient(to right, $primaryColor, $thirdColor 50%,$fourthColor 50%, black 50%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        background-size: 200% 100%;
-        background-position: 100%;
-        @include transi(.4s);
-
-            &:hover{
-                background-position: 0 100%;
-            }
-    }
-}
-// animation bounce pour le bouton retour en haut de la page
-.bounce {
-    animation: bounce 2s infinite ease-in-out;
-}
-//les animations d'opacité + translate
-.toAnimate.fadeFromLeft.active{
-    animation: 1s fadeFromLeft ease 1 forwards;
-}
-
-.toAnimate.fadeFromRight.active{
-    animation: 1s fadeFromRight ease 1 forwards;
-}
-
-.toAnimate.fadeFromBottom.active{
-    animation: 1s fadeFromBottom ease 1 forwards, move 8s linear infinite alternate;;
-}
-
-.toAnimate.fadeIn.active{
-    animation: 1s fadeIn ease 1 forwards;
-}
-// spécifique pour section contact pour rajouter l'animation lié à la background color
-.toAnimate.fadeInContact.active{
-    animation: 1s fadeIn ease 1 forwards, move 8s linear infinite alternate;;
 }

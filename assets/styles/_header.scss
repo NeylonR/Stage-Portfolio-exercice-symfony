@@ -78,17 +78,7 @@ header{
     @include transi();
     @include flex(center, column, flex-end);
     gap: 1em;
-    // &::after{
-    //     content: '';
-    //     background-color: white;
-    //     width: 60%;
-    //     height: 2px;
-    //     border-radius: 50px;
-    //     position: absolute;
-    //     bottom: 0%;
-    //     left: 50%;
-    //     transform: translateX(-50%);
-    // }
+
     a{
         color:white;
         font-family: roboto;
@@ -121,7 +111,7 @@ header{
 }
 
 
-// SPAN POUR FAIRE LE BURGER
+
 #burgerButton {
     position: fixed;
     bottom: 1px;
@@ -137,7 +127,6 @@ header{
     @include flex();
 }
 
-
 #burger::after, #burger::before {
     content: "";
     position: absolute;
@@ -150,17 +139,14 @@ header{
     @include transi(.5s);
 }
 
-// STYLE DU BURGER BASIC AVEC AFTER ET BEFORE
 #burger, #burger::after, #burger::before {
     width: 2em;
     height: .3em;
     background-color: black;
-    // box-shadow: 0px 0px 5px white;
     border-radius: 10px;
     @include transi(.5s);
 }
 
-// POSITION DE BEFORE ET AFTER
 #burger::after {
     top: -12px;
     left: 0;
