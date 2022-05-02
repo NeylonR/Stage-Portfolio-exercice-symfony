@@ -6,6 +6,7 @@ use App\Entity\Mail;
 use App\Form\MailType;
 use Symfony\Component\Mime\Email;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,22 +26,24 @@ class HomeController extends AbstractController
             $em->persist($mail);
             $em->flush();
             
-            $email =(new Email())
+            $email =(new TemplatedEmail())
             ->from('menfoudefou01@gmail.com')
             ->to('menfoudefou01@gmail.com')
             ->subject("Mail de contact")
-            ->text("Mail envoyé par : " . $mail->getFirstName() . " ." . $mail->getLastName() . " Email de contact : " . $mail->getSender() . " . Content : " . $mail->getContent());
+            // ->text("Mail envoyé par : " . $mail->getFirstName() . " " . $mail->getLastName() . " . Email de contact : " . $mail->getSender() . " . Content : " . $mail->getContent())
+            ->htmlTemplate('mail/mail.html.twig')
+            ->context([ 'contact' => $mail ]);
             $mailer->send($email);
-
             $message = "Merci ". $mail->getFirstName() .", votre mail a bien été envoyé.";
 
+            $form = $this->createForm(MailType::class);
             return $this->render('home/index.html.twig', [
                 'form' => $form->createView(),
                 'message' => $message
             ]);
         }
 
-        $form = $this->createForm(MailType::class);
+        
         return $this->render('home/index.html.twig', [
             'form' => $form->createView(),
         ]);

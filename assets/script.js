@@ -30,7 +30,7 @@ getButtonModal.forEach(buttonModal => {
         getModalContent.querySelector('.description').textContent = getDescription;
         getModalContent.querySelector('.demo').href = getDemo;
         getModalContent.querySelector('.github').href = getGithub;
-        // getModalContent.querySelector('.technoContainer').appendChild(getTags);
+
         // pour chaque li > rajout dans le dom
         getTagsLi.forEach(li => {
             const createLi = document.createElement('li');

@@ -65,6 +65,7 @@
     }
     .projectCard{
         @include flex(flex-start, column, center);
+        @include transi();
         border: 1px $primaryColor solid;
         border-radius: 20px;
         overflow: hidden;
@@ -82,11 +83,23 @@
             cursor: pointer;
         }
 
+        .buttonModal{
+            i{
+                @include transi();
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(-100%);
+                font-size: .1px;
+            }
+        }
+
         &:hover{
+            box-shadow: 0px 1px 4px $primaryColor;
             .buttonModal i{
                 opacity: 1;
                 visibility: visible;
                 transform: translateX(0);
+                font-size: 18px;
             }
             img{
                 transform: scale(1.1);
@@ -96,17 +109,11 @@
     h2{
         margin-bottom: 1em;
     }
-    .buttonModal{
-        i{
-            @include transi();
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(-100%);
-        }
-    }
+    
     .imgContainer{
         width: 100%;
         line-height: 0;
+        max-height: 200px;
         overflow: hidden;
     }
     img{
