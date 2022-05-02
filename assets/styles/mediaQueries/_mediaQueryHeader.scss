@@ -1,0 +1,91 @@
+@media screen and(min-width: 900px){
+    header{
+        @include flex(flex-start, column, center);
+        height: 60vh;
+        min-height: 350px;
+    
+        .imgContainer{
+            order: 2;
+        
+            img{
+                width: 300px;
+            }
+        }
+    
+        .header{
+            @include flex(space-evenly);
+            padding-top: 1em;
+            margin: auto 0;
+    
+            .textContainer{
+                order: 1;
+                width: 50%;
+                text-align: start;
+    
+                .socialsIcons{
+                    display: block;
+                    max-width: auto;
+                    margin: 0;
+                    a{
+                        margin-right: 2em;
+                    }
+                }
+            }
+        }
+    }
+
+    #navbar{
+        @include flex(space-evenly);
+        height: auto;
+        width: 50%;
+        min-width: 500px;
+        right: 0;
+        position: relative;
+        padding: 0 0 1em 0;
+        background-color: transparent;
+        transform: translateY(0);
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        @include transi();
+        gap: 0em;
+        &::after{
+            content: '';
+            background-color: white;
+            width: 60%;
+            height: 2px;
+            border-radius: 50px;
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        a{
+            color:white;
+            font-family: roboto;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    height: 3px;
+                    width: 100%;
+                    background-color: white;
+                    border-radius: 50px;
+                    top: 100%;
+                    left: 0;
+                    transform-origin: 100% 50%;
+                    transform: scale3d(0, 1, 1);
+                    transition: transform .3s;
+                }
+    
+                &:hover::after{
+                    transform-origin: 0% 50%;
+                    transform: scale3d(1, 1, 1);
+                }
+        }
+    }
+
+    #burgerButton{
+        display: none;
+    }
+}
+

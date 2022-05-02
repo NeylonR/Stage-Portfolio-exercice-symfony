@@ -1,0 +1,159 @@
+* {
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: robotoBold;
+    src: url(../fonts/roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: roboto;
+    src: url(../fonts/roboto/Roboto-Regular.ttf);
+}
+
+::-webkit-scrollbar{
+    background-color: white;
+    width: .6em;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $primaryColor;
+}
+
+html, body {
+	scroll-behavior: smooth;
+}
+
+body{
+    font-family: roboto;
+    font-size: 18px;
+    background-image: url(../../public/images/doodad.png);
+}
+
+h1, h2, h3, h4{
+    font-family: robotoBold;
+    font-size: 22px;
+    display: inline-block;
+}
+
+.button{
+    display: inline-block;
+    padding: .4em .8em;
+    border-radius: 20px;
+    background: $secondaryColor;
+    overflow: hidden;
+
+    i{
+        @include transi();
+    }
+
+    &:hover i{
+        transform: translate(25%, -25%);
+    }
+}
+
+section{
+    padding: 2em;
+    position: relative;
+    &::after{
+        content: '';
+        background: black;
+        width: 50%;
+        height: 3px;
+        border-radius: 20px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &:last-of-type::after{
+        display: none;
+    }
+}
+
+.titleColored{
+    position: relative;
+}
+//le sous titrage orange des titres
+.titleColored::after{
+    content: "";
+    transform: translateX(-5%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: $secondaryColor;
+    height: 50%;
+    width: 120%;
+    border-radius: 15px;
+}
+
+a{
+    color: black;
+    display: inline-block;
+}
+
+strong{
+    font-weight: normal;
+}
+
+// style hover gradiant pour l'img linkedin sur contact/footer
+.linkedin{
+    a{
+    background: linear-gradient(to right, $primaryColor, $thirdColor 50%, $fourthColor 50%, #76A9EA 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 100%;
+    background-position: 100%;
+    @include transi(.4s);
+
+        &:hover{
+            background-position: 0 100%;
+        }
+    }
+}
+// style hover gradiant pour l'img github sur contact/footer
+.github{
+    a{
+        background: linear-gradient(to right, $primaryColor, $thirdColor 50%,$fourthColor 50%, black 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        background-size: 200% 100%;
+        background-position: 100%;
+        @include transi(.4s);
+
+            &:hover{
+                background-position: 0 100%;
+            }
+    }
+}
+// animation bounce pour le bouton retour en haut de la page
+.bounce {
+    animation: bounce 2s infinite ease-in-out;
+}
+//les animations d'opacité + translate
+.toAnimate.fadeFromLeft.active{
+    animation: 1s fadeFromLeft ease 1 forwards;
+}
+
+.toAnimate.fadeFromRight.active{
+    animation: 1s fadeFromRight ease 1 forwards;
+}
+
+.toAnimate.fadeFromBottom.active{
+    animation: 1s fadeFromBottom ease 1 forwards, move 8s linear infinite alternate;;
+}
+
+.toAnimate.fadeIn.active{
+    animation: 1s fadeIn ease 1 forwards;
+}
+// spécifique pour section contact pour rajouter l'animation lié à la background color
+.toAnimate.fadeInContact.active{
+    animation: 1s fadeIn ease 1 forwards, move 8s linear infinite alternate;;
+}

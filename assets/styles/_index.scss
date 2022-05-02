@@ -1,0 +1,213 @@
+#sectionAbout{
+    // padding: 2em;
+    h2{
+        margin-bottom: 1em;
+    }
+    p{
+        padding: 1em .5em;
+        text-align: center;
+        background-color: white;
+        border-radius: 10px;
+    }
+}
+
+#sectionSkills{
+    // padding: 2em;
+    img{
+        width: 50px;
+    }
+    .skillsIcons{
+        padding-top: 1.5em;
+        ul{
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(3,minmax(100px,1fr));
+            // grid-column-gap: 1em;
+            grid-row-gap: 2em;
+            justify-content: center;
+            align-content: center;
+            justify-items: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        // img{
+        //     @include transi();
+        //     cursor: pointer;
+        //     &:hover{
+        //         transform: scale(1.2);
+        //         filter: invert(53%) sepia(99%) saturate(1136%) /*hue-rotate(322deg)*/ brightness(100%) contrast(104%);
+        //     }
+        // }
+        svg{
+            @include transi();
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            path{
+                fill: black;
+                @include transi();
+            }
+            path.sqlText{
+                fill: white;
+            }
+            &:hover{
+                transform: scale(1.2);
+                path:not(.sqlText){
+                    fill: hsl(243deg 100% 69%);
+                }
+            }
+        }
+    }
+}
+
+#sectionProjects{
+    .projectsCardContainer{
+        display: grid;
+            width: 100%;
+            grid-template-columns: repeat(1,minmax(100%,1fr));
+            grid-column-gap: 1em;
+            grid-row-gap: 4em;
+            justify-content: center;
+            align-content: center;
+            justify-items: center;
+            align-items: center;
+            margin: 0 auto;
+    }
+    .projectCard{
+        @include flex(flex-start, column, center);
+        border: 1px $primaryColor solid;
+        border-radius: 20px;
+        overflow: hidden;
+        width: 100%;
+        min-width: 250px;
+        max-width: 400px;
+        background-color: white;
+
+        h4{
+            padding: 1em 0;
+        }
+
+        p{
+            padding: .5em 0;
+            cursor: pointer;
+        }
+
+        &:hover{
+            .buttonModal i{
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(0);
+            }
+            img{
+                transform: scale(1.1);
+            }
+        }
+    }
+    h2{
+        margin-bottom: 1em;
+    }
+    .buttonModal{
+        i{
+            @include transi();
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-100%);
+        }
+    }
+    .imgContainer{
+        width: 100%;
+        line-height: 0;
+        overflow: hidden;
+    }
+    img{
+        @include transi();
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .informationsForModal{
+        display: none;
+    }
+}
+
+
+#sectionContact{
+    // padding: 2em;
+    h2{
+        margin-bottom: 1em;
+    }
+
+    p{
+        padding: .5em 0;
+    }
+
+    a.mail{
+        font-size: 16px;
+        margin: 0 auto;
+        @include transi();
+        &:hover{
+            color: $primaryColor;
+        }
+    }
+
+    .socialsIcons{
+        padding: .5em 0 1em;
+        @include flex(space-evenly);
+        max-width: 400px;
+        margin: 0 auto;
+        a{
+            @include transi(.6s);
+
+            &:hover i{
+                color: $primaryColor;
+                transform: rotateY(360deg);
+            }
+        }
+        i{
+            color:black;
+            font-size: 50px;
+            @include transi(.6s);
+        }
+    }
+
+    form{
+        @include flex(center, column, center);
+        input, textarea{
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            padding: .5em;
+            font-family: roboto;
+            font-size: 16px;
+            margin-bottom: .4em;
+            // box-shadow: 0 0 1px $primaryColor;
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        textarea{
+            margin-bottom: 1em;
+            resize: none;
+        }
+        button.button{
+            outline: none;
+            border: none;
+            cursor: pointer;
+            @include transi();
+            font-family: roboto;
+            font-size: 16px;
+            display: inline-block;
+            padding: .4em 1.8em;
+            &:hover{
+                transform: translate(2px, -2px);
+                box-shadow: -1px 1px 2px black;
+            }
+        }
+        
+    }
+    img{
+        display: none;
+    }
+
+}

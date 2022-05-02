@@ -1,0 +1,172 @@
+header{
+    @include flex(center, column, center);
+    background-image: url(../../public/images/headBanner.jpg);
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+    min-height: 600px;
+    padding: 1em;
+    color: white;
+    position: relative;
+
+
+    .imgContainer{
+        padding: .3em;
+        overflow: hidden;
+        @include flex;
+        order: 1;
+    
+        img{
+            border: 5px black solid;
+            border-radius: 50%;
+            object-fit: cover;
+            width: 250px;
+        }
+    }
+
+    .header{
+        @include flex(center, column, center);
+
+        .textContainer{
+            order: 2;
+            text-align: center;
+
+            h1{
+                padding: .3em 0;
+            }
+            .socialsIcons{
+                padding: .5em 0 1em;
+                @include flex(space-evenly);
+                max-width: 400px;
+                margin: 0 auto;
+                a{
+                    @include transi(.6s);
+
+                    &:hover i{
+                        color: $primaryColor;
+                        transform: rotateY(360deg);
+                    }
+                }
+                i{
+                    color:white;
+                    font-size: 50px;
+                    @include transi(.6s);
+                    
+                }
+            }
+        }
+    }
+}
+
+#navbar{
+    position: fixed;
+    visibility: hidden;
+    z-index: 5;
+    bottom: 0;
+    right: 51px;
+    width: 30%;
+    max-width: 125px;
+    height: 150px;
+    padding: 2em;
+    // min-width: 500px;
+    padding-bottom: 1em;
+    background-color: black;
+    transform: translateY(400%);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    @include transi();
+    @include flex(center, column, flex-end);
+    gap: 1em;
+    // &::after{
+    //     content: '';
+    //     background-color: white;
+    //     width: 60%;
+    //     height: 2px;
+    //     border-radius: 50px;
+    //     position: absolute;
+    //     bottom: 0%;
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    // }
+    a{
+        color:white;
+        font-family: roboto;
+            position: relative;
+            &::after{
+                content: '';
+                position: absolute;
+                height: 3px;
+                width: 100%;
+                background-color: white;
+                border-radius: 50px;
+                top: 100%;
+                left: 0;
+                transform-origin: 100% 50%;
+                transform: scale3d(0, 1, 1);
+                transition: transform .3s;
+            }
+
+            &:hover::after{
+                transform-origin: 0% 50%;
+                transform: scale3d(1, 1, 1);
+            }
+    }
+
+    &.active{
+        transform: translate(0);
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+// SPAN POUR FAIRE LE BURGER
+#burgerButton {
+    position: fixed;
+    bottom: 1px;
+    right: 1px;
+    width: 50px;
+    height: 50px;
+    z-index: 5;
+    box-shadow: 0 0 2px black;
+    border-radius: 5px;
+    cursor:  pointer;
+    @include transi;
+    background-color: white;
+    @include flex();
+}
+
+
+#burger::after, #burger::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+}
+
+#burger {
+    position: relative;
+    display: inline-block;
+    @include transi(.5s);
+}
+
+// STYLE DU BURGER BASIC AVEC AFTER ET BEFORE
+#burger, #burger::after, #burger::before {
+    width: 2em;
+    height: .3em;
+    background-color: black;
+    // box-shadow: 0px 0px 5px white;
+    border-radius: 10px;
+    @include transi(.5s);
+}
+
+// POSITION DE BEFORE ET AFTER
+#burger::after {
+    top: -12px;
+    left: 0;
+}
+
+#burger::before {
+    top: 12px;
+    left: 0;
+}

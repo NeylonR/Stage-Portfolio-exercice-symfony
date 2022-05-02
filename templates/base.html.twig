@@ -2,8 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+         <meta name="description" content="Developpeur Web Front End & Back End à Perigueux, Neylon Rodrigues, prêt à vous assister pour toute création de site web static, dynamique, ou encore wordpress. Contact : 06 40 42 69 00">
+        <link rel="alternate" href="index.html" hreflang="fr-fr">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <title>{% block title %}Neylon Rodrigues | Développeur Web Front & Back End à Périgueux.{% endblock %}</title>
+
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -11,6 +16,7 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('script') }}
         {% endblock %}
     </head>
     <body>

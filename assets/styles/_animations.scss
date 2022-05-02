@@ -1,0 +1,74 @@
+@keyframes comeIn {
+    0% {
+      letter-spacing: 20px;
+      color: rgba(255, 255, 255, 0);
+    }
+    70% {
+      letter-spacing: 10px;
+    }
+    100% {
+      letter-spacing: normal;
+      color: black;
+    }
+}
+
+@keyframes move {
+  0%{background-position:0% 0%}
+  100%{background-position:0% 100%}
+}
+
+@keyframes fadeIn {
+  0%{opacity: 0}
+  100%{opacity: 1}
+}
+
+@keyframes fadeFromLeft{
+  0%{ opacity: 0; transform: translateX(-100%);}
+  100%{opacity: 1; transform: translate(0,0);}
+}
+
+@keyframes fadeFromRight{
+  0%{ opacity: 0; transform: translateX(100%);}
+  100%{opacity: 1; transform: translate(0,0);}
+}
+
+@keyframes fadeFromBottom{
+  0%{ opacity: 0; transform: translateY(50px);}
+  100%{opacity: 1; transform: translate(0,0);}
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes slideIn {
+    from{
+        transform: translateX(-250%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-250%);
+    }
+}

@@ -1,0 +1,131 @@
+@media screen and(min-width: 650px){
+    #sectionAbout{
+        @include flex(flex-start);
+        article{
+            width: 90%;
+        }
+        p{
+            transform: translateX(3em);
+            text-align: start;
+        }
+    }
+
+    #sectionSkills{
+        @include flex(flex-start);
+        article{
+            width: 90%;
+        }
+        .skillsIcons{
+            ul{
+                grid-template-columns: repeat(4,minmax(100px,1fr));
+                grid-column-gap: 1em;
+                grid-row-gap: 2em;
+            }
+        }
+    }
+}
+
+@media screen and(min-width: 740px){
+    #sectionProjects{
+        .projectsCardContainer{
+            display: grid;
+            grid-template-columns: repeat(2,minmax(40%,1fr));
+        }
+    }
+
+    #sectionContact{
+        form{
+            width: 85%;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media screen and(min-width: 900px){
+    section{
+        padding: 4em;
+    }
+    #sectionAbout{
+        article{
+            width: 85%;
+        }
+    }
+}
+
+@media screen and(min-width: 950px){
+    #sectionContact{
+        .textContainer{
+            text-align: center;
+        }
+        form{
+            width: 50%;
+            margin: 0;
+        }
+
+        img{
+            display: block;
+            width: 250px;
+        }
+
+        .imgWithFormContainer{
+            @include flex(space-around);
+            padding-top: 1em;
+        }
+    }
+}
+
+@media screen and(min-width: 1050px){
+    section{
+        padding: 6em;
+    }
+    #sectionSkills{
+        .skillsIcons{
+            transform: translateX(3em);
+            ul{
+                width: 80%;
+            }
+        }
+    }
+}
+
+@media screen and(min-width: 1200px){
+    section{
+        padding: 7em;
+    }
+    #sectionProjects{
+        .projectsCardContainer{
+            display: grid;
+            grid-template-columns: repeat(3,minmax(38%,1fr));
+        }
+    }
+
+    #sectionContact{
+        img{
+            width: 350px;
+        }
+    }
+}
+
+@media screen and(min-width: 1500px){
+    section{
+        padding: 8em 8em 8em 12em;
+    }
+    #sectionProjects{
+        .projectsCardContainer{
+            display: grid;
+            grid-template-columns: repeat(4,minmax(27%,1fr));
+        }
+    }
+
+    #sectionSkills{
+        .skillsIcons{
+            ul{
+                width: 70%;
+            }
+        }
+    }
+}
+
+
+
+
